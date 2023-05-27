@@ -21,7 +21,7 @@
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(255, 255, 255, 0.02);
-  --highlightt-color: rgba(0, 0, 0, 0.1);
+  --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/Sun.svg);
 }
 
@@ -77,11 +77,16 @@ body * {
   left: 0;
   transform: translateY(-50%);
   top: 50%;
+
+  animation: slide-back 0.4s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -148,5 +153,23 @@ ul li a:hover {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
